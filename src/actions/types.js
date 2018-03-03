@@ -1,0 +1,3 @@
+const CHAT_SELECTED = 'CHAT_SELECTED';
+
+export default {CHAT_SELECTED}
