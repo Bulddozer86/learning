@@ -24,7 +24,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <MainLayout chats={this.props.chats} onChatSelect={this.props.onChatSelect}/>
+        <MainLayout chats={this.props.chats} onChatSelect={this.props.onChatSelect} onChatStart={this.props.onChatStart}/>
       </div>
     );
   }
@@ -40,6 +40,10 @@ const mapDispatchToProps = dispatch => {
   return {
     onChatSelect: (chat) => {
       dispatch(chatActions.chatSelected(chat))
+    },
+    onChatStart: (chat) => {
+      console.log(chat);
+      dispatch(chatActions.chatStart(chat))
     }
   }
 }

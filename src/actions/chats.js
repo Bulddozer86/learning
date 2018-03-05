@@ -8,4 +8,12 @@ function chatSelected(chat)
     }
 }
 
-export default {chatSelected}
+function chatStart(chat)
+{
+    return {
+        type: types.CHAT_START,
+        chat: chat
+    }
+}
+
+export default {chatSelected, chatStart}

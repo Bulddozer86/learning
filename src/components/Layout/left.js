@@ -11,13 +11,19 @@ const style = {
   };
 
 const LeftSite = (props) => {
-    console.log(props);
+
     return (
         <div>
             <div className="row">
                 <div className="col-md-12">
+                    <RaisedButton 
+                        label="Start"
+                        onClick={() => {
+                            props.props.onChatStart(props.props.chats);
+                        }}
+                     />
                     <RaisedButton label="Stop" />
-                    <RaisedButton label="Nect" />
+                    <RaisedButton label="Next" />
                 </div>
             </div>
             <div className="row">

@@ -16,6 +16,11 @@ function chatsReducer(state, action) {
             return Object.assign({}, state, {
                 chats: [...state.chats, action.chat]
             });
+        
+        case types.CHAT_START:
+            return Object.assign({}, state, {
+                chats: [...state.chats, action.chat]
+            });    
     }
 }
 
