@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import MainLayout from './components/Layout'
 import chatActions from './actions/chats'
+import buttonActions from './actions/buttons/buttons'
 
 import logo from './logo.svg';
 
@@ -24,7 +25,13 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
 
-        <MainLayout chats={this.props.chats} onChatSelect={this.props.onChatSelect} onChatStart={this.props.onChatStart}/>
+        <MainLayout 
+          chats={this.props.chats} 
+          buttons={this.props.buttons}
+          onChatSelect={this.props.onChatSelect} 
+          onChatStart={this.props.onChatStart} 
+          onStartButton={this.props.onStartButton} 
+        />
       </div>
     );
   }
@@ -32,7 +39,8 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    chats: state.chats.chats
+    chats: state.chats.chats,
+    buttons: state.buttons.buttons
   }
 }
 
@@ -42,9 +50,11 @@ const mapDispatchToProps = dispatch => {
       dispatch(chatActions.chatSelected(chat))
     },
     onChatStart: (chat) => {
-      console.log(chat);
       dispatch(chatActions.chatStart(chat))
-    }
+    },
+    onStartButton: (button) => {
+      dispatch(buttonActions.buttonStart(button))
+    } 
   }
 }
 

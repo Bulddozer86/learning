@@ -20,7 +20,9 @@ function chatsReducer(state, action) {
         case types.CHAT_START:
             return Object.assign({}, state, {
                 chats: [...state.chats, action.chat]
-            });    
+            });
+        
+        default: return state;    
     }
 }
 

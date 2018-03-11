@@ -15,7 +15,7 @@ const RisghtSite = (props) => {
                     <div key={i}>
                         <ListItem
                             onClick={() => {
-                                props.props.onChatSelect(props.chats[ key ]);
+                                props.setChat(props.chats[ key ]);
                             }}
                             key={i}
                             primaryText={props.chats[ key ].name}

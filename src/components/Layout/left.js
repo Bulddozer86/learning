@@ -11,19 +11,20 @@ const style = {
   };
 
 const LeftSite = (props) => {
+    const { chats, buttons, onStartButton } = props.props
 
     return (
         <div>
             <div className="row">
                 <div className="col-md-12">
-                    <RaisedButton 
-                        label="Start"
-                        onClick={() => {
-                            props.props.onChatStart(props.props.chats);
-                        }}
-                     />
-                    <RaisedButton label="Stop" />
-                    <RaisedButton label="Next" />
+                    {
+                        Object.keys(buttons).map((key, i) => {
+                            return buttons[ key ].enabled === true 
+                                    ? <RaisedButton key={i} label={buttons[ key ].name} onClick={onStartButton(buttons[ key ])} /> 
+                                    : ''
+                        })
+                    }
+
                 </div>
             </div>
             <div className="row">
@@ -34,7 +35,7 @@ const LeftSite = (props) => {
                     <Paper style={style} zDepth={2} >
                         {
                             props.props.chats.length > 0 ?
-                            <img src={props.props.chats[0].image} />
+                            <img src={props.props.chats[0].image}    />
                             : ''
                         }
                     </Paper>
