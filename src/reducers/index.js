@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import chats from './chats'
+import todos from './todos'
+import visibilityFilter from './visibilityFilter'
 import buttons from './buttons'
 
-const chatApp = combineReducers({
-    chats,
-    buttons
+const todoApp = combineReducers({
+  todos,
+  visibilityFilter,
+  buttons
 })
 
-export default chatApp;
+export default todoApp

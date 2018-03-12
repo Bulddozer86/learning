@@ -1,61 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import MainLayout from './components/Layout'
-import chatActions from './actions/chats'
-import buttonActions from './actions/buttons/buttons'
+
+import ButtonsNavigation from './containers/buttonsNavigation'
 
 import logo from './logo.svg';
 
 import './Bootstrap.css';
 import './App.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-  }
+const App = () => (
+    <div>
+        <ButtonsNavigation />
+    </div>
+)
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-
-        <MainLayout 
-          chats={this.props.chats} 
-          buttons={this.props.buttons}
-          onChatSelect={this.props.onChatSelect} 
-          onChatStart={this.props.onChatStart} 
-          onStartButton={this.props.onStartButton} 
-        />
-      </div>
-    );
-  }
-}
-
-const mapStateToProps = state => {
-  return {
-    chats: state.chats.chats,
-    buttons: state.buttons.buttons
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onChatSelect: (chat) => {
-      dispatch(chatActions.chatSelected(chat))
-    },
-    onChatStart: (chat) => {
-      dispatch(chatActions.chatStart(chat))
-    },
-    onStartButton: (button) => {
-      dispatch(buttonActions.buttonStart(button))
-    } 
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App

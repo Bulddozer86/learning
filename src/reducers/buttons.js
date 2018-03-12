@@ -1,47 +1,34 @@
-import types from '../actions/buttons/types';
 
 const initialState = {
-    buttons: {
-        start: {
-            name: 'Start',
-            enabled: true
-        },
-        stop: {
-            name: 'Stop',
-            enabled: false
-        },
-        next: {
-            name: 'Next',
-            enabled: false
-        }
-    }
+  start: {
+    name: 'Start',
+    flag: true
+  }  
 }
 
-function buttonReducer(state, action) {
-    if (typeof state === 'undefined') {
-        return initialState;
+const button = (state, action) => {
+    switch (action.type) {
+      case 'BUTTON_START':
+        console.log(state)
+        state.start.name = 'hello world'  
+        return state
+      default:
+        return state
     }
-
-    switch(action.type) {
-        case types.BUTTON_START:
-             action.button.enabled = false
-            return { ...state, year: action.button }
-            // return Object.assign({}, state, {
-            //     chats: [...state.buttons, action.button]
-            // });
-        
-        case types.BUTTON_STOP:
-            return Object.assign({}, state, {
-                chats: [...state.buttons, action.button]
-            });
-        
-        case types.BUTTON_NEXT:
-            return Object.assign({}, state, {
-                chats: [...state.buttons, action.button]
-            });
-        
-        default: return state; 
+  }
+  
+  const buttonsAction = (state = initialState, action) => {
+    switch (action.type) {
+      case 'BUTTON_START':
+        console.log(button(state, action));
+        return [
+          ...state,
+          button(state, action)
+        ]
+        //return state
+      default:
+        return state
     }
-}
-
-export default buttonReducer;
+  }
+  
+  export default buttonsAction

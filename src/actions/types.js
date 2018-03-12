@@ -1,5 +1,0 @@
-const CHAT_SELECTED = 'CHAT_SELECTED';
-const CHAT_START    = 'CHAT_START';
-
-
-export default {CHAT_SELECTED, CHAT_START}
