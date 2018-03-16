@@ -1,17 +1,31 @@
 
 const initialState = {
-  start: {
-    name: 'Start',
-    flag: true
-  }  
+  isInit: false,
+  buttons: {
+    start: {
+      name: 'Start'
+    },
+    stop: {
+      name: 'Stop'
+    },
+    next: {
+      name: 'Next'
+    }
+  }
 }
 
 const button = (state, action) => {
     switch (action.type) {
       case 'BUTTON_START':
-        console.log(state)
-        state.start.name = 'hello world'  
-        return state
+        return {
+          ...state,
+          ['isInit']: action.flag
+        }
+      case 'BUTTON_STOP':
+        return {
+          ...state,
+          ['isInit']: action.flag
+        }  
       default:
         return state
     }
@@ -20,12 +34,11 @@ const button = (state, action) => {
   const buttonsAction = (state = initialState, action) => {
     switch (action.type) {
       case 'BUTTON_START':
-        console.log(button(state, action));
-        return [
-          ...state,
-          button(state, action)
-        ]
-        //return state
+        return button(state, action);
+      
+      case 'BUTTON_STOP':
+        return button(state, action);  
+      
       default:
         return state
     }

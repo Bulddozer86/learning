@@ -1,13 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
-const Buttons = ({ onButtonStart, buttons }) => (
-  <button 
-    type="text" 
-    onClick={() => onButtonStart(buttons.start.flag)}
-  >
-    {console.log(buttons)}
-    {buttons.start.name}
-  </button>
-)
+const Buttons = ({ onButtonStart, onButtonStop, buttons }) => {
+  if (buttons.isInit == false) {
+    return (<div className="navigation">
+    <button type="text" onClick={() => onButtonStart(true)}>{buttons.buttons.start.name}</button>
+   </div>)
+  } else {
+    return (<div className="navigation">
+    <button type="text" onClick={() => onButtonStop(false)}>{buttons.buttons.stop.name}</button>
+    <button type="text">{buttons.buttons.next.name}</button>
+    </div>)
+  }
+}
 
 export default Buttons

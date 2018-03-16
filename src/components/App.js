@@ -6,6 +6,7 @@ import NavigationButtons from '../containers/NavigationButtons'
 
 const App = () => (
   <div>
+    
     <NavigationButtons />
     <AddTodo />
     <VisibleTodoList />

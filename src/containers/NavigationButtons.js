@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { buttonStart } from '../actions'
+import { buttonStart, buttonStop } from '../actions'
 import Buttons from '../components/Buttons'
 
 const mapStateToProps = (state) => {
@@ -12,6 +12,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onButtonStart: (flag) => {
       dispatch(buttonStart(flag))
+    },
+    onButtonStop: (flag) => {
+      dispatch(buttonStop(flag))
     }
   }
 }

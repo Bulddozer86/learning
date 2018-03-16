@@ -28,3 +28,10 @@ export const buttonStart = (flag) => {
         flag
     }
 }
+
+export const buttonStop = (flag) => {
+  return {
+      type: 'BUTTON_STOP',
+      flag
+  }
+}
