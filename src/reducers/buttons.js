@@ -1,4 +1,6 @@
 
+import constants from '../actions/buttons/constants'
+
 const initialState = {
   isInit: false,
   buttons: {
@@ -16,12 +18,12 @@ const initialState = {
 
 const button = (state, action) => {
     switch (action.type) {
-      case 'BUTTON_START':
+      case constants.SATRT_BTN:
         return {
           ...state,
           ['isInit']: action.flag
         }
-      case 'BUTTON_STOP':
+      case constants.STOP_BTN:
         return {
           ...state,
           ['isInit']: action.flag
@@ -33,10 +35,10 @@ const button = (state, action) => {
   
   const buttonsAction = (state = initialState, action) => {
     switch (action.type) {
-      case 'BUTTON_START':
+      case constants.SATRT_BTN:
         return button(state, action);
       
-      case 'BUTTON_STOP':
+      case constants.STOP_BTN:
         return button(state, action);  
       
       default:

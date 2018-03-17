@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { buttonStart, buttonStop } from '../actions'
+import { buttonStart, buttonStop } from '../actions/buttons'
 import Buttons from '../components/Buttons'
 
 const mapStateToProps = (state) => {
