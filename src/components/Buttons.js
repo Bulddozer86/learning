@@ -7,7 +7,7 @@ const Buttons = ({ onButtonStart, onButtonStop, buttons }) => {
    </div>)
   } else {
     return (<div className="navigation">
-    <button type="text" onClick={() => onButtonStop(false)}>{buttons.buttons.stop.name}</button>
+    <button type="text" onClick={() => onButtonStart(false)}>{buttons.buttons.stop.name}</button>
     <button type="text">{buttons.buttons.next.name}</button>
     </div>)
   }
